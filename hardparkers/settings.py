@@ -31,7 +31,7 @@ SECRET_KEY = 'm4k3uPy0urp0wndr4ndoM53cretk3y!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hardparkers.herokuapp', 'localhost']
+ALLOWED_HOSTS = ['hardparkers.herokuapp.com', 'localhost']
 
 
 # Application definition
