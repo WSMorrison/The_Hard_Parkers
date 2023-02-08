@@ -32,7 +32,13 @@ class Car(models.Model):
     feature_consideration = models.BooleanField(default=False)
     feature_approved = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f"{self.car_owner}'s {self.car_year} {self.car_model}"
+
 
 class Siteuser(models.Model):
-    site_user = ForeignKey(User, on_delete=models.CASCADE)
+    site_user = models.ForeignKey(User, on_delete=models.CASCADE)
     event_organizer = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.site_user
