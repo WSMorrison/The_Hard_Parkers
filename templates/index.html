@@ -4,15 +4,19 @@
 
     <section>
         <h2>Your Events</h1>
+        <hr>
     </section>
     <section>
         <h2>Upcoming Events</h2>
+        <hr>
         {% for event in event_list %}
         <div>
             <h2>{{ event.event_name }}</h2>
             <h4>{{ event.event_location }}</h4>
             <p>{{ event.event_date }}</p>
             <p>Registration closes {{ event.event_date_reg_close }}</p>
+            <a href="{% url 'event_view' event.event_name %}" class="btn btn-primary">Details</a>
+            <hr>
         </div>
         {% endfor %}
     </section>
