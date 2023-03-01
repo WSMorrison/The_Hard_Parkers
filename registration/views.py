@@ -20,3 +20,15 @@ class EventView(View):
             'eventview.html',
             {'event': event}
         )
+
+
+class EventReg(View):
+
+    def get(self, request, event_name, *args, **kwargs):
+        event = get_object_or_404(Event, event_name=event_name)
+
+        return render(
+            request,
+            'eventreg.html',
+            {'event': event}
+        )
