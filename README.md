@@ -125,6 +125,7 @@ Talk about alive silverfish
 - All of my Code Institute UCD July 2022 cohort, who have been available to answer questions through Slack.
 - Code Institute tutors accessed through the Code Institute LMS have been helpful with understanding various concepts during instruction.
 - Code regarding the MVC architecture is very similar to the Code Institute training code from the I Think Therefore I Blog Lessons. Available on request.
+    - Process for modifying Django's built in registration and sign-up code to fit this website was particularly instructive, from the "Adding Authentication - Part 2" lesson.
 - Basic HTML structure uses the Bootstrap Cards style library. [Bootstrap Cards](https://getbootstrap.com/docs/5.3/components/card/)
 
 For educational purposes only.

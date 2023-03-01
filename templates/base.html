@@ -14,24 +14,29 @@
     <header>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Upcoming Events</a>
+              <a class="nav-link active" href="{% url 'home' %}">Upcoming Events</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="#">Your Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Your Account</a>
             </li>
-            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
             </li>
+              {% if Siteuser.event_organizer %}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Events You Organized</a>
+              </li>
+              {% endif %}
             {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup'}">Register</a>
+              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
             </li>
             {% endif %}
           </ul>
