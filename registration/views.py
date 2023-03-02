@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Event, Siteuser
+from .models import Event, Siteuser, Car
 
 
 class EventList(generic.ListView):
@@ -22,6 +22,13 @@ class EventView(View):
         )
 
 
-class EventReg(generic.ListView):
-    model = Event
-    template_name = 'eventreg.html'
+class EventReg(View):
+
+    def get(self, request, event_name, *args, **kargs):
+        event = get_object_or_404(Event, event_name=event_name)
+
+        return render(
+            request,
+            'eventreg.html',
+            {'event': event}
+        )
