@@ -31,6 +31,7 @@ class Car(models.Model):
     car_modifications = models.CharField(max_length=200)
     feature_consideration = models.BooleanField(default=False)
     feature_approved = models.BooleanField(default=False)
+    car_event = models.CharField(max_length=50, default='No Event Specified')
 
     def __str__(self):
         return f"{self.car_owner}'s {self.car_year} {self.car_model}"
@@ -39,6 +40,7 @@ class Car(models.Model):
 class Siteuser(models.Model):
     site_user = models.ForeignKey(User, on_delete=models.CASCADE)
     event_organizer = models.BooleanField(default=False)
+    site_owner = models.BooleanField(default=False)
 
     def __str__(self):
         return self.site_user

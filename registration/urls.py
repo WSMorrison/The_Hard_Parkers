@@ -7,4 +7,6 @@ urlpatterns = [
     path('<str:event_name>/', views.EventView.as_view(), name='event_view'),
     path('<str:event_name>/eventreg/',
          views.EventReg.as_view(), name='event_reg'),
+    path('<str:event_name>/eventthanks/',
+         views.EventReg.as_view(), name='event_thanks'),
 ]
