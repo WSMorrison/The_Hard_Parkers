@@ -47,6 +47,5 @@ class EventReg(View):
 
         return render(
             request,
-            'eventthanks.html',
-            {'event': event}
+            'index.html'
         )
