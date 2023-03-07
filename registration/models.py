@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Event(models.Model):
@@ -38,9 +40,17 @@ class Car(models.Model):
 
 
 class Siteuser(models.Model):
-    site_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     event_organizer = models.BooleanField(default=False)
     site_owner = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.site_user
+
+@receiver(post_save, sender=User)
+def create_siteuser(sender, isntance, created, **kwargs):
+    if created:
+        Siteuser.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_siteuser(sender, instance, **kwargs):
+    instance.profile.save()
