@@ -40,7 +40,7 @@ class Car(models.Model):
 
 
 class Siteuser(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='Orphan User')
     event_organizer = models.BooleanField(default=False)
     site_owner = models.BooleanField(default=False)
 
