@@ -40,13 +40,13 @@ class Car(models.Model):
 
 
 class Siteuser(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default='Orphan User')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='None')
     event_organizer = models.BooleanField(default=False)
     site_owner = models.BooleanField(default=False)
 
 
 @receiver(post_save, sender=User)
-def create_siteuser(sender, isntance, created, **kwargs):
+def create_siteuser(sender, instance, created, **kwargs):
     if created:
         Siteuser.objects.create(user=instance)
 
